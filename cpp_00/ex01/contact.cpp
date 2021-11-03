@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:51:59 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 21:07:35 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/03 18:27:41 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/03 19:14:55 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "contact.hpp"
 
-int main(void)
+void Contact::add_info(int i_info, std::string prompt)
 {
-    Phonebook   phonebook;
-    std::string prompt;
+    this->info_contact[i_info] = prompt;
+}
 
-    std::cout << "Type \"ADD\" to add contact, \"SEARCH\" to search contact and \"EXIT\" to exit Phonebook" << std::endl;
-    while (phonebook.is_running())
-    {
-        std::cout << ">";
-        std::getline(std::cin, prompt);
-        phonebook.treat_command(prompt);
-
-    }
+std::string Contact::get_info(int i_info)
+{
+    return (this->info_contact[i_info]);
 }

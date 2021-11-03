@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/02 21:08:37 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/03 18:39:21 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME = phonebook
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp
+SRCS = main.cpp \
+		phonebook.cpp \
+		contact.cpp
 
 RM = rm -rf
 OBJS = $(SRCS:.cpp=.o)

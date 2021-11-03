@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 20:27:32 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/02 21:07:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/03 19:15:13 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@
 class Contact
 {
     private:
-        int     index;
-        std::string first_name;
-        std::string last_name;
-        std::string nick_name;
-        std::string phone_number;
-        std::string darkest_secret;
+        std::string info_contact[5];
 
     public :
-        Contact();
-        void display(void);
+        void        add_info(int i_info, std::string prompt);
+        std::string get_info(int i_info);
+
 };
 
 #endif
