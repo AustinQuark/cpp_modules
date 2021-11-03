@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/03 18:39:21 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/03 23:10:11 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,20 @@ NAME = phonebook
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp \
-		phonebook.cpp \
-		contact.cpp
+SRCS = sources/main.cpp \
+		sources/phonebook.cpp \
+		sources/contact.cpp
 
 RM = rm -rf
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:%.cpp=%.o)
 
 START_STYLE = \033[1;32m
 END_STYLE = \033[0m
 
 all : $(NAME)
+
+%.o: %.cpp
+	@($(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o))
 
 $(NAME): $(OBJS)
 	@(printf "$(START_STYLE)Compiling...\n$(END_STYLE)")
