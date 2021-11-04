@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:31:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:00:31 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 12:43:57 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,20 @@ void Phonebook::add_contact(void)
 {
     std::string prompt;
 
-    if (this->number_of_contacts < 8)
+    if (this->number_of_contacts == 8)
     {
-        for (int i = 0; i < 5 && !std::cin.eof(); i++)
-        {
-            std::cout << this->fields[i] << ": ";
-            std::getline(std::cin, prompt);
-            this->contacts[number_of_contacts].add_info(i, prompt);
-        }
-        this->number_of_contacts++;
+            for (int i = 0; i < 7; i++)
+                contacts[i] = contacts[i + 1];
+        this->number_of_contacts = 7;
+        std::cout << "Oldest contact removed" << std::endl;
     }
-    else
-        std::cout << "Contact list is full" << std::endl;
+    for (int i = 0; i < 5 && !std::cin.eof(); i++)
+    {
+        std::cout << this->fields[i] << ": ";
+        std::getline(std::cin, prompt);
+        this->contacts[number_of_contacts].add_info(i, prompt);
+    }
+    this->number_of_contacts++;
 }
 
 void Phonebook::search_contact(void)
