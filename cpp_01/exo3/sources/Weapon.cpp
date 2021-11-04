@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:06:57 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/04 16:41:43 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 17:36:18 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 std::string const &Weapon::get_type() const
 {
-    std::string &ref = this->_type;
+    std::string const &ref = this->_type;
     return (ref);
 }
 

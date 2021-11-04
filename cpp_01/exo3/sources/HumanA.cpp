@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:29:19 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/04 16:33:12 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 17:37:49 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,9 @@ void HumanA::attack(void) const
 {
     std::cout << this->_name << " attacks with his ";
     std::cout << this->_weapon.get_type() << std::endl;
+}
+
+void HumanA::setWeapon(Weapon weapon)
+{
+    this->_weapon = weapon;
 }
