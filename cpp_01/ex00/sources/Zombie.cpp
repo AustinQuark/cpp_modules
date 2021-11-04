@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 02:09:51 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/04 03:15:19 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 15:08:25 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ Zombie::~Zombie()
     std::cout << std::endl;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name) : name(name)
 {
-    this->name = name;
 }
 
-void Zombie::announce(void)
+void Zombie::announce(void) const
 {
     std::cout << "<" << this->name << ">" << " BraiiiiiiinnnzzzZ...";
     std::cout << std::endl;

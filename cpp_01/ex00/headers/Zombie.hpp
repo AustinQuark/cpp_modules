@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 02:09:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/04 03:09:10 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 15:09:17 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 class Zombie
 {
     private:
-
         std::string name;
 
     public:
         Zombie(std::string name);
         ~Zombie();
-        void announce(void);
+        void announce(void) const;
 };
 
 Zombie* newZombie( std::string name );
