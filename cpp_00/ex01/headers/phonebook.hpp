@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 20:20:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:00:07 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 14:04:31 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
 
 # include "contact.hpp"
 
@@ -25,9 +26,9 @@ class Phonebook
         bool        running;
         Contact     contacts[8];
         std::string fields[5];
-        void        display_contact(Contact contact);
+        void        display_contact(Contact contact) const;
         void        add_contact(void);
-        void        search_contact(void);
+        void        search_contact(void) const;
 
     public:
         Phonebook();

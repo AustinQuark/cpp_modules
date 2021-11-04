@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:31:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/04 12:43:57 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 14:27:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void Phonebook::add_contact(void)
     {
         std::cout << this->fields[i] << ": ";
         std::getline(std::cin, prompt);
-        this->contacts[number_of_contacts].add_info(i, prompt);
+        this->contacts[number_of_contacts].set_info(i, prompt);
     }
     this->number_of_contacts++;
 }
 
-void Phonebook::search_contact(void)
+void Phonebook::search_contact(void) const
 {
     std::string tmp;
     int         i_contact;
@@ -107,7 +107,7 @@ void Phonebook::search_contact(void)
         std::cout << "Contact list is empty" << std::endl;
 }
 
-void Phonebook::display_contact(Contact contact)
+void Phonebook::display_contact(Contact contact) const
 {
     for (int i = 0; i < 5; i++)
     {

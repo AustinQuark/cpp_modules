@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 20:27:32 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:20:11 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/04 14:26:37 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Contact
         std::string info_contact[5];
 
     public :
-        void        add_info(int i_info, std::string prompt);
-        std::string get_info(int i_info);
+        void        set_info(int i_info, std::string prompt);
+        std::string get_info(int i_info) const;
 };
 
 #endif
