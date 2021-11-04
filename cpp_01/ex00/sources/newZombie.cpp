@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 20:27:32 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:20:11 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/04 02:23:15 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/04 03:15:07 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#include "../headers/Zombie.hpp"
 
-# include <string>
-
-class Contact
+Zombie *newZombie(std::string name)
 {
-    private:
-        std::string info_contact[5];
+    Zombie *newZombie;
 
-    public :
-        void        add_info(int i_info, std::string prompt);
-        std::string get_info(int i_info);
-};
-
-#endif
+    newZombie = new Zombie(name);
+    return (newZombie);
+}

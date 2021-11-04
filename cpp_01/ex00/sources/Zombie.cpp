@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 20:27:32 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:20:11 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/04 02:09:51 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/04 03:15:19 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#include "../headers/Zombie.hpp"
 
-# include <string>
-
-class Contact
+Zombie::~Zombie()
 {
-    private:
-        std::string info_contact[5];
+    std::cout << "<" << this->name << ">" << " I'm dead";
+    std::cout << std::endl;
+}
 
-    public :
-        void        add_info(int i_info, std::string prompt);
-        std::string get_info(int i_info);
-};
+Zombie::Zombie(std::string name)
+{
+    this->name = name;
+}
 
-#endif
+void Zombie::announce(void)
+{
+    std::cout << "<" << this->name << ">" << " BraiiiiiiinnnzzzZ...";
+    std::cout << std::endl;
+}

@@ -21,6 +21,7 @@
 class Phonebook
 {
     private:
+        Phonebook();
         int         number_of_contacts;
         bool        running;
         Contact     contacts[8];
@@ -30,7 +31,6 @@ class Phonebook
         void        search_contact(void);
 
     public:
-        Phonebook();
         void        treat_command(std::string);
         bool        is_running(void) const;
 };

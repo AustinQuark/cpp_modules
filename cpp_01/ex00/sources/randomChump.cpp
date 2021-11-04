@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 20:27:32 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:20:11 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/04 02:33:16 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/04 03:15:12 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#include "../headers/Zombie.hpp"
 
-# include <string>
-
-class Contact
+void randomChump(std::string name)
 {
-    private:
-        std::string info_contact[5];
+    Zombie randomChump(name);
 
-    public :
-        void        add_info(int i_info, std::string prompt);
-        std::string get_info(int i_info);
-};
-
-#endif
+    randomChump.announce();
+}

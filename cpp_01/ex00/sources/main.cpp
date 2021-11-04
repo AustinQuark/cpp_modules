@@ -5,23 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:51:59 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/04 01:27:56 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/04 02:36:45 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/04 03:15:34 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/phonebook.hpp"
+#include "../headers/Zombie.hpp"
 
 int main(void)
 {
-    Phonebook   phonebook;
-    std::string prompt;
+    std::cout << "Creating manual zombie" << std::endl;
+    Zombie manual("manual");
+    manual.announce();
 
-    std::cout << "Type \"ADD\" to add contact, \"SEARCH\" to search contact and \"EXIT\" to exit Phonebook" << std::endl;
-    while (phonebook.is_running() && !std::cin.eof())
-    {    
-        std::cout << ">";
-        std::getline(std::cin, prompt);
-        phonebook.treat_command(prompt);
-    }
+    std::cout << "Creating new zombie with newZombie function" << std::endl;
+    Zombie *nw = newZombie("new");
+    nw->announce();
+
+    std::cout << "Creating random Zombie" << std::endl;
+    randomChump("random");
+    
+    std::cout << "Deleting new" << std::endl;
+    delete nw;
 }

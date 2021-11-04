@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 20:27:32 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/03 23:20:11 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/04 02:09:55 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/04 03:09:10 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 # include <string>
+# include <iostream>
 
-class Contact
+class Zombie
 {
     private:
-        std::string info_contact[5];
 
-    public :
-        void        add_info(int i_info, std::string prompt);
-        std::string get_info(int i_info);
+        std::string name;
+
+    public:
+        Zombie(std::string name);
+        ~Zombie();
+        void announce(void);
 };
+
+Zombie* newZombie( std::string name );
+void    randomChump(std::string name);
 
 #endif
