@@ -6,14 +6,14 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/04 15:46:40 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/04 18:07:52 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = reference
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = sources/main.cpp
 
