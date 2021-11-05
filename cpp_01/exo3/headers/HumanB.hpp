@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:23:56 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/05 14:29:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/05 14:38:23 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanB
     public:
         HumanB(std::string name);
         void attack(void) const;
-        void setWeapon(Weapon weapon);
+        void setWeapon(Weapon &weapon);
 };
 
 #endif
