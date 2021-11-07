@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 04:29:58 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/07 13:47:47 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/07 04:44:22 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/07 14:25:18 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#include "../headers/Karen.hpp"
 
-# include <string>
-# include <iostream>
-
-class Karen
+int main(int ac, char **av)
 {
-    private:
-        void debug(void);
-        void info(void);
-        void warning(void);
-        void error(void);
-        
-    public:
-        Karen();
-        void complain(std::string level);
-
-};
-
-typedef void (Karen::*DefineLevel)(void);
-
-#endif
+    if (ac != 2)
+    {
+        std::cout << "Bad argument, launch ./karenFilter FILTER" << std::endl;
+        return (0);
+    }
+    Karen karen(av[1]);
+    
+    karen.complain("DEBUG");
+    karen.complain("INFO");
+    karen.complain("WARNING");
+    karen.complain("ERROR");
+}

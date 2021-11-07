@@ -6,13 +6,15 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 04:35:02 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/07 14:25:42 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/07 14:23:35 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/Karen.hpp"
 
-Karen::Karen()
+
+
+Karen::Karen(std::string filter) : _filter(filter)
 {
 }
 
@@ -36,19 +38,46 @@ void Karen::error(void)
     std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
-void Karen::complain(std::string level)
+void Karen::noFilter(void)
+{
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+}
+
+enumLevel Karen::getLevel(std::string level)
 {
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    DefineLevel _defineLevel[4];
+    enumLevel   eLevel = eNone;
 
-    _defineLevel[0] = &Karen::debug;
-    _defineLevel[1] = &Karen::info;
-    _defineLevel[2] = &Karen::warning;
-    _defineLevel[3] = &Karen::error;
-    
-    for (int i = 0; i < 4; i++)
+    for (size_t i = 0; i < 4; i++)
         if (level == levels[i])
-            (this->*_defineLevel[i])();
+            eLevel = (enumLevel)i;
+    return (eLevel);
+}
+
+void Karen::complain(std::string level)
+{
+    enumLevel eLevel;
+    enumLevel eFilter;
+
+    eLevel = getLevel(level);
+    eFilter = getLevel(this->_filter);
+    
+    if (eLevel >= eFilter)
+    {
+        switch (eLevel)
+        {
+            case eDebug:     this->debug();
+                            break;
+            case eInfo:      this->info();
+                            break;
+            case eWarning:   this->warning();
+                            break;
+            case eError:     this->error();
+                            break;
+            case eNone:      this->noFilter();
+                            break;
+        }
+    }
     
 }
 
