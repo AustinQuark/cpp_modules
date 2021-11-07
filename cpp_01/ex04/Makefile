@@ -6,14 +6,14 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/06 01:30:53 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/07 04:14:49 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = sed
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = sources/main.cpp \
 		sources/Sed.cpp

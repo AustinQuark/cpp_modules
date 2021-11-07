@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 01:08:43 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/06 12:29:45 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/07 03:36:04 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <fstream>
 # include <string>
+# include <cstdlib>
 
 class Sed
 {

@@ -6,18 +6,17 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/07 04:15:12 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/07 04:24:08 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombieHorde
+NAME = karen
 
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = sources/Zombie.cpp \
-		sources/main.cpp \
-		sources/ZombieHorde.cpp
+SRCS = sources/main.cpp \
+		sources/Karen.cpp
 
 RM = rm -rf
 OBJS = $(SRCS:%.cpp=%.o)
