@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 04:29:58 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/07 14:24:04 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/08 14:36:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class Karen
         void info(void);
         void warning(void);
         void error(void);
-        void noFilter(void);
         std::string _filter;
         enumLevel getLevel(std::string level);
 

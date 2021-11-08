@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 04:44:22 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/07 14:25:18 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/08 14:37:35 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ int main(int ac, char **av)
     karen.complain("INFO");
     karen.complain("WARNING");
     karen.complain("ERROR");
+    karen.complain("42");
+    karen.complain("");
 }
