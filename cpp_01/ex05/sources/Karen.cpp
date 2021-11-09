@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 04:35:02 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/07 14:25:42 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/08 14:49:25 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ void Karen::complain(std::string level)
     
     for (int i = 0; i < 4; i++)
         if (level == levels[i])
-            (this->*_defineLevel[i])();
-    
+            (this->*_defineLevel[i])();   
 }
 
 
