@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:00:25 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/09 04:28:48 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/09 15:01:59 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-    return ((float)this->_fixedValue / _shiftBits);
+    return ((float)this->_fixedValue / (float)_shiftBits);
 }
 
 int Fixed::toInt(void) const
