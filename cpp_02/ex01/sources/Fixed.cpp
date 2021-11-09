@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:00:25 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/09 15:01:59 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/09 22:31:46 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,13 @@ Fixed::~Fixed()
     std::cout << "Destrutor called" << std::endl;
 }
 
+int Fixed::getShiftBits() const
+{
+    return (this->_shiftBits);
+}
+
 std::ostream &operator<<(std::ostream &output, Fixed const &fixed)
 {
-    output << fixed.getRawBits();
+    output << (float)fixed.getRawBits() / (float)fixed.getShiftBits();
     return (output);
 }

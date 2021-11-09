@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:59:48 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/09 22:30:42 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/09 22:51:57 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Fixed
     private:
         int _fixedValue;
         int static const _fracBits = 8;
-        int static const _shiftBits = 256;
 
     public:
+        int static const _shiftBits = 256;
         Fixed();
         Fixed(const Fixed &fixed);
         Fixed(const int value);
@@ -34,6 +34,24 @@ class Fixed
         float toFloat(void) const;
         int toInt(void) const;
         int getShiftBits() const;
+        bool operator>(Fixed const &cmp) const;
+        bool operator<(Fixed const &cmp) const;
+        bool operator>=(Fixed const &cmp) const;
+        bool operator<=(Fixed const &cmp) const;
+        bool operator==(Fixed const &cmp) const;
+        bool operator!=(Fixed const &cmp) const;
+        Fixed operator+(Fixed const &add) const;
+        Fixed operator-(Fixed const &sub) const;
+        Fixed operator*(Fixed const &times) const;
+        Fixed operator/(Fixed const &div) const;
+        Fixed operator++(int);
+        Fixed operator--(int);
+        Fixed &operator--();
+        Fixed &operator++();
+        static Fixed &min(Fixed &a, Fixed &b);
+        static Fixed &max(Fixed &a, Fixed &b);
+        static const Fixed &min(Fixed const &a, Fixed const &b);
+        static const Fixed &max(Fixed const &a, Fixed const &b);
         ~Fixed();
 };
 
