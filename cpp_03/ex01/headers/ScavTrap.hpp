@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 16:06:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/10 16:46:41 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/10 18:32:25 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/10 19:07:57 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main(void)
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-    ClapTrap alpha;
-    ClapTrap b("rocky");
-    ClapTrap e("alpha");
-    ClapTrap rocky(b);
-    alpha = e;
+    private:
+        ScavTrap();
+    public:
+        ScavTrap(std::string name);
+        ScavTrap(const ScavTrap &scavtrap);
+        ScavTrap &operator=(const ScavTrap &scavtrap);
+        ~ScavTrap();
+};
 
-
-    alpha.takeDamage(4);
-    alpha.attack("rocky");
-    alpha.beRepaired(6);
-    rocky.takeDamage(4);
-    rocky.attack("alpha");
-    rocky.beRepaired(5);
-}
+#endif

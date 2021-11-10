@@ -6,19 +6,20 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:06:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/10 16:46:41 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/10 19:09:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ClapTrap.hpp"
+#include "../headers/ScavTrap.hpp"
 
 int main(void)
 {
-    ClapTrap alpha;
-    ClapTrap b("rocky");
-    ClapTrap e("alpha");
-    ClapTrap rocky(b);
-    alpha = e;
+    ScavTrap alpha("null");
+    ScavTrap b("rocky");
+    ScavTrap a("alpha");
+    ScavTrap rocky(b);
+    alpha = a;
 
 
     alpha.takeDamage(4);
