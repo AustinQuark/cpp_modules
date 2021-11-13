@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:31:40 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/10 19:15:21 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/13 13:50:42 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(const ScavTrap &scavtrap)
     *this = scavtrap;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &scavtrap)
+ScavTrap &ScavTrap::operator=(const ClapTrap &scavtrap)
 {
     std::cout << "ScavTrap assignation operator called" << std::endl;
     this->_energyPoints = scavtrap.getEnergyPoints();
@@ -43,8 +43,17 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &scavtrap)
     return(*this);
 }
 
+void ScavTrap::attack(std::string const &target) const
+{
+    std::cout << "ScavTrap " << this->_name << " attack " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+}
+
+void ScavTrap::guardGate(void) const
+{
+    std::cout << "ScavTrap " << this->_name << " entered guard gate mode, no one shall pass !" << std::endl;
+}
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap destructor called" << std::endl;
-    ClapTrap::~ClapTrap();
 }

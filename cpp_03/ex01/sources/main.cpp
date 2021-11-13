@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:06:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/10 19:09:50 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/13 13:51:08 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(void)
     alpha.takeDamage(4);
     alpha.attack("rocky");
     alpha.beRepaired(6);
+    alpha.guardGate();
     rocky.takeDamage(4);
     rocky.attack("alpha");
     rocky.beRepaired(5);
