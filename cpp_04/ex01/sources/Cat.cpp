@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:21:45 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 14:29:03 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/16 22:24:08 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &cat)
 {
-    *this = cat;
+    this->type = cat.getType();
+    this->_brain = cat._brain;
 }
 
 void Cat::makeSound() const
@@ -35,8 +36,9 @@ void Cat::makeSound() const
     std::cout << "Meow..." << std::endl;
 }
 
-const Cat &Cat::operator=(const Animal &animal)
+const Cat &Cat::operator=(const Cat &cat)
 {
-    this->type = animal.getType();
+    this->type = cat.getType();
+    this->_brain = cat._brain;
     return (*this);
 }

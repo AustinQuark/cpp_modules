@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 10:51:53 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 14:41:19 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/16 22:25:51 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Cat : public Animal
         Cat();
         ~Cat();
         Cat(const Cat &cat);
-        const Cat &operator=(const Animal &animal);
+        const Cat &operator=(const Cat &cat);
         void makeSound() const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:21:45 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 14:28:43 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/16 22:24:30 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Dog::~Dog()
 
 Dog::Dog(const Dog &dog)
 {
-    *this = dog;
+    this->type = dog.getType();
+    this->_brain = dog._brain;
 }
 
 void Dog::makeSound() const
@@ -35,9 +36,9 @@ void Dog::makeSound() const
     std::cout << "Woof !" << std::endl;
 }
 
-
-const Dog &Dog::operator=(const Animal &animal)
+const Dog &Dog::operator=(const Dog &dog)
 {
-    this->type = animal.getType();
+    this->type = dog.getType();
+    this->_brain = dog._brain;
     return (*this);
 }

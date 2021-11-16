@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 14:29:23 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 14:45:46 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/16 22:27:13 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ const std::string &Brain::getIdeas() const
 
 Brain &Brain::operator=(const Brain &brain)
 {
-    *this->ideas = brain.getIdeas();
+    std::string ideas;
+
+    ideas = brain.getIdeas();
+    for (unsigned int i = 0; i < sizeof(ideas)/sizeof(ideas[0]); i++)
+        this->ideas[i] = ideas[i];
     return (*this);
 }
