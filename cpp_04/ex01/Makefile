@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/16 14:43:34 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/16 14:44:03 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = sources/main.cpp \
 		sources/Cat.cpp \
 		sources/Dog.cpp \
-		sources/Animal.cpp \
-		sources/WrongAnimal.cpp \
-		sources/WrongCat.cpp
+		sources/Brain.cpp \
+		sources/Animal.cpp
 
 RM = rm -rf
 OBJS = $(SRCS:%.cpp=%.o)

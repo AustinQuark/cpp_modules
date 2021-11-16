@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/WrongAnimal.hpp"
+#include "../headers/Animal.hpp"
 
-WrongAnimal::WrongAnimal() : type("none")
+Animal::Animal() : type("none")
 {
-    std::cout << "WrongAnimal constructor called" << std::endl;
+    std::cout << "Animal constructor called" << std::endl;
 }
 
-WrongAnimal::~WrongAnimal()
+Animal::~Animal()
 {
-    std::cout << "WrongAnimal destructor called" << std::endl;
+    std::cout << "Animal destructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &animal)
+Animal::Animal(const Animal &animal)
 {
     *this = animal;
 }
 
-std::string const &WrongAnimal::getType() const
+std::string const &Animal::getType() const
 {
     return (this->type);
 }
 
-void WrongAnimal::makeSound() const
+void Animal::makeSound() const
 {
-    std::cout << "WrongAnimal sound not found" << std::endl;
+    std::cout << "Animal sound not found" << std::endl;
 }
 
-const WrongAnimal &WrongAnimal::operator=(const WrongAnimal &animal)
+const Animal &Animal::operator=(const Animal &animal)
 {
     this->type = animal.getType();
     return (*this);
