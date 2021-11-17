@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 14:29:23 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 22:27:13 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/17 17:31:23 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,25 @@ Brain::Brain(const Brain &brain)
     *this = brain;
 }
 
-const std::string &Brain::getIdeas() const
+std::string *Brain::getIdeas() const 
 {
-    return (*ideas);
+    return ((std::string *)this->ideas);
+}
+
+void Brain::setIdeas(int i, std::string &idea)
+{
+    if (i < 0 || i >= IDEAS_SIZE)
+        std::cout << "setIdea out of range" << std::endl;
+    else
+        this->ideas[i] = idea;
 }
 
 Brain &Brain::operator=(const Brain &brain)
 {
-    std::string ideas;
+    std::string *ideas;
 
     ideas = brain.getIdeas();
-    for (unsigned int i = 0; i < sizeof(ideas)/sizeof(ideas[0]); i++)
+    for (unsigned int i = 0; i < IDEAS_SIZE; i++)
         this->ideas[i] = ideas[i];
     return (*this);
 }

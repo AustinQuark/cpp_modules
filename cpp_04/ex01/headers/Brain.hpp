@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 14:20:22 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 14:44:25 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/17 17:30:51 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@
 # include <string>
 # include <iostream>
 
+# define IDEAS_SIZE 100
+
 class Brain
 {
     protected:
-        std::string ideas[100];
+        std::string ideas[IDEAS_SIZE];
     
     public:
         Brain();
         Brain(const Brain &brain);
         ~Brain();
-        const std::string &getIdeas() const;
+        std::string *getIdeas() const;
+        void setIdeas(int i, std::string &idea);
         Brain &operator=(const Brain &brain);
 };
 
