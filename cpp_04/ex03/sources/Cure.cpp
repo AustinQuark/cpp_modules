@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Cure.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:20:06 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/19 18:58:01 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/19 13:28:34 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/19 13:33:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#include "../headers/Cure.hpp"
 
-# include <string>
-# include "AMateria.hpp"
-
-class AMateria;
-
-class ICharacter
+Cure::Cure() : AMateria("cure")
 {
-    public:
-        virtual ~ICharacter() {};
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0;
-};
+    std::cout << "Cure constructor called" << std::endl;
+}
 
-#endif
+Cure::~Cure()
+{
+    std::cout << "Cure destructor called" << std::endl;
+}
+
+AMateria *Cure::clone() const
+{
+    AMateria *new_cure = new Cure();
+    return (new_cure);
+}
+
+void Cure::use(ICharacter &target)
+{
+    std::cout <<  "* heals " << target.getName() << " wounds *" << std::endl;
+}

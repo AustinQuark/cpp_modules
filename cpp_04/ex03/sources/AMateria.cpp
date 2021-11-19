@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:00:22 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/17 21:27:44 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/19 20:00:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,7 @@ std::string const &AMateria::getType() const
     return (this->_type);
 }
 
-AMateria::AMateria() : _type("null")
-{
-    std::cout << "Default constructor called" << std::endl;
-}
-
-AMateria::AMateria(const AMateria &amateria)
-{
-    std::cout << "Copy constructor called" << std::endl;
-    *this = amateria;
-}
-
-AMateria &AMateria::operator=(const AMateria &amateria)
-{
-    //this->_type = amateria.getType();
-    return (*this);
-}
-
-AMateria *AMateria::clone(void) const
-{
-    AMateria *newAMateria = new AMateria(*this);
-    return (newAMateria);
-}
-
 void AMateria::use(ICharacter &target)
 {
-    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+    (void)target;
 }
-
