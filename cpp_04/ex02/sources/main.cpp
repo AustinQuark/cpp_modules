@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:28:49 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/17 17:57:09 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/19 23:30:26 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 int	main( void )
 {
+
+    //Animal *abstractAnimal = new Animal(); //Trying to instantiate abstract class Animal
+
     std::cout << "---Leak test" << std::endl;
     {
         const Animal* j = new Dog();

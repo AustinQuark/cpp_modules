@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:28:49 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 12:46:26 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/19 23:24:03 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main(void)
     const WrongCat *wrongcat = new WrongCat();
     const WrongAnimal *wronganimal = new WrongAnimal();
     std::cout << wrongcat->getType() << " " << std::endl;
+    std::cout << wronganimal->getType() << " " << std::endl;
     wrongcat->makeSound();
     wronganimal->makeSound();
     delete wronganimal;

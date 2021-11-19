@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 10:50:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/16 12:32:58 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/19 23:24:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class WrongAnimal
     
     public:
         WrongAnimal();
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         WrongAnimal(const WrongAnimal &animal);
         const WrongAnimal &operator=(const WrongAnimal &animal);
         std::string const &getType() const;

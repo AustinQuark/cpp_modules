@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 11:08:26 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/19 23:28:33 by avieira          ###   ########.fr       */
+/*   Created: 2021/11/16 11:21:45 by avieira           #+#    #+#             */
+/*   Updated: 2021/11/16 12:00:28 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/Animal.hpp"
+#include "../headers/WrongCat.hpp"
 
-Animal::Animal() : type("none")
+WrongCat::WrongCat()
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << "WrongCat constructor called" << std::endl;
+    this->type = "WrongCat";
 }
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &animal)
+WrongCat::WrongCat(const WrongCat &cat)
 {
-    *this = animal;
+    *this = cat;
 }
 
-std::string const &Animal::getType() const
-{
-    return (this->type);
-}
-
-const Animal &Animal::operator=(const Animal &animal)
+const WrongCat &WrongCat::operator=(const WrongAnimal &animal)
 {
     this->type = animal.getType();
     return (*this);

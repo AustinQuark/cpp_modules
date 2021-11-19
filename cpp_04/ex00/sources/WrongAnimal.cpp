@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:08:26 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/19 23:28:33 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/16 12:07:46 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/Animal.hpp"
+#include "../headers/WrongAnimal.hpp"
 
-Animal::Animal() : type("none")
+WrongAnimal::WrongAnimal() : type("none")
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << "WrongAnimal constructor called" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &animal)
+WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 {
     *this = animal;
 }
 
-std::string const &Animal::getType() const
+std::string const &WrongAnimal::getType() const
 {
     return (this->type);
 }
 
-const Animal &Animal::operator=(const Animal &animal)
+void WrongAnimal::makeSound() const
+{
+    std::cout << "WrongAnimal sound not found" << std::endl;
+}
+
+const WrongAnimal &WrongAnimal::operator=(const WrongAnimal &animal)
 {
     this->type = animal.getType();
     return (*this);
