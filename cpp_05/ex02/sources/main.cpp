@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 00:23:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/21 16:45:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:59:25 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 int main(void)
 {
     Form			*form = NULL;
- 	Bureaucrat		A("150", 150);
-	Bureaucrat		B("1", 1);
+ 	Bureaucrat		noob("noob", 150);
+	Bureaucrat		boss("boss", 1);
 
 	std::cout << std::endl;
 
@@ -30,7 +30,7 @@ int main(void)
 	std::cout << "---Trying to execute unsigned form" << std::endl;
  	try
  	{
- 		form->execute(A);
+ 		noob.executeForm(*form);
  	}
  	catch (std::exception &e)
  	{
@@ -40,8 +40,8 @@ int main(void)
 	std::cout << "---Sign form then trying to execute with grade bellow" << std::endl;
 	try
  	{
- 		form->beSigned(B);
-		form->execute(A);
+ 		boss.signForm(*form);
+		noob.executeForm(*form);
  	}
  	catch (std::exception &e)
  	{
@@ -51,7 +51,7 @@ int main(void)
 	std::cout << "---Execute form" << std::endl;
 	try
  	{
-		form->execute(B);
+		boss.executeForm(*form);
  	}
  	catch (std::exception &e)
  	{
@@ -67,18 +67,18 @@ int main(void)
 	std::cout << "---Sign and execute form many times" << std::endl;
  	try
  	{
-		form->beSigned(B);
-		form->execute(B);
+		boss.signForm(*form);
+		boss.executeForm(*form);
 		sleep(1);
-		form->execute(B);
+		boss.executeForm(*form);
 		sleep(1);
-		form->execute(B);
+		boss.executeForm(*form);
 		sleep(1);
-		form->execute(B);
+		boss.executeForm(*form);
 		sleep(1);
-		form->execute(B);
+		boss.executeForm(*form);
 		sleep(1);
-		form->execute(B);
+		boss.executeForm(*form);
  	}
  	catch (std::exception &e)
  	{
@@ -94,8 +94,8 @@ int main(void)
 	std::cout << "---Sign and execute form" << std::endl;
  	try
  	{
-		form->beSigned(B);
-		form->execute(B);
+		boss.signForm(*form);
+		boss.executeForm(*form);
  	}
  	catch (std::exception &e)
  	{

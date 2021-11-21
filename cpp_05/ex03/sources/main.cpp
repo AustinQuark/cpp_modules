@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 00:23:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/21 16:35:29 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 17:04:27 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,37 @@ int main(void)
 	Form		*form;
 	Bureaucrat	boss("boss", 1);
 
+	std::cout << std::endl;
 	std::cout << "---Form : bloop is unknown" << std::endl;
 	std::cout << "-----Makeform Loop-----" << std::endl;
 	form = intern.makeForm("bloop is unknown", "bloop");
 	std::cout << "-----------------------" << std::endl;
+	std::cout << std::endl;
 	if (form)
 		delete form;
+	std::cout << std::endl;
 	std::cout << "---Form : \"[empty]\"" << std::endl;
 	std::cout << "-----Makeform Loop-----" << std::endl;
 	form = intern.makeForm("", "null");
 	std::cout << "-----------------------" << std::endl;
+	std::cout << std::endl;
 	if (form)
 		delete form;
 	
+	std::cout << std::endl;
 	std::cout << "---Form : ShrubberyCreationForm" << std::endl;
 	std::cout << "-----Makeform Loop-----" << std::endl;
 	form = intern.makeForm("shrubbery creation", "windows 42");
 	std::cout << "-----------------------" << std::endl;
+	std::cout << std::endl;
 
 	if (form)
 	{	
+		std::cout << std::endl;
+		std::cout << "---Testing if created form works well" << std::endl;
 		boss.signForm(*form);
 		boss.executeForm(*form);
+		std::cout << std::endl;
 		delete form;
 	}
 }
