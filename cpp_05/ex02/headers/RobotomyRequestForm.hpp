@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:26:39 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:32:30 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 05:30:36 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "Form.hpp"
-# include <cstdlib>
+//# include <cstdlib>
 
 class RobotomyRequestForm : public Form
 {
@@ -32,7 +32,7 @@ class RobotomyRequestForm : public Form
 
         void action() const;
 
-        void execute(Bureaucrat const &executor);
+        void execute(Bureaucrat const &executor) const;
 };
 
 #endif

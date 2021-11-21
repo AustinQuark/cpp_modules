@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:03:34 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:30:14 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 04:47:33 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ Form &Form::beSigned(Bureaucrat &bureaucrat)
     return (*this);
 }
 
-void Form::canExecute(Bureaucrat const &executor)
+void Form::canExecute(Bureaucrat const &executor) const
 {
     if (!this->_signed)
         throw FormNotSigned();

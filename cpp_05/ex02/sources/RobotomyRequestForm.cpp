@@ -48,14 +48,14 @@ void RobotomyRequestForm::action() const
 {
     std::cout << "RiiiiiiizzZZZ..." << std::endl;
     std::cout << this->_target;
-    if (rand() % 2)
+    if (std::rand() % 2)
         std::cout << " robotomization successfull";
     else
         std::cout << " robotomization failure";
     std::cout << std::endl;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &executor)
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     this->canExecute(executor);
     this->action();

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 23:46:00 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:50:35 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/20 22:34:32 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ void Bureaucrat::signForm(Form &form)
     }
 }
 
-void Bureaucrat::executeForm(Form const &form)
+void Bureaucrat::executeForm(Form &form)
 {
     try
     {
         form.canExecute(*this);
         std::cout << this->_name << " executes " << form.getName() << std::endl;
-        form.execute();
+        form.execute(*this);
     }
     catch (std::exception &e)
     {

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 23:41:29 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:33:43 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/20 22:17:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Bureaucrat
 
         void signForm(Form &form);
 
-        void executeForm(Form const & form);
+        void executeForm(Form &form);
 
         class GradeTooHighException : public std::exception
         {

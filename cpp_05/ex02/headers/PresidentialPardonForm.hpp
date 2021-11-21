@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:26:39 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:18:20 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/20 22:04:11 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class PresidentialPardonForm : public Form
 
         void action() const;
 
-        void execute(Bureaucrat const &executor);
+        void execute(Bureaucrat const &executor) const;
 };
 
 #endif

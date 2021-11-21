@@ -60,7 +60,7 @@ void ShrubberyCreationForm::action() const
     }
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor)
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     this->canExecute(executor);
     this->action();

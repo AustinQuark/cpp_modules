@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:32:04 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:31:37 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 04:42:35 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void PresidentialPardonForm::action() const
     std::cout << this->_target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor)
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
     this->canExecute(executor);
     this->action();

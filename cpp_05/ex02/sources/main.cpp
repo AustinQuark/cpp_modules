@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 00:23:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 21:53:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 05:29:12 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,72 +17,85 @@
 
 int main(void)
 {
-    	Form			*form = NULL;
- 	Bureaucrat		bob("bob", 1);
- 	Bureaucrat		phil("phil", 40);
- 	Bureaucrat		luc("luc", 150);
- 
+    Form			*form = NULL;
+ 	Bureaucrat		A("150", 150);
+	Bureaucrat		B("1", 1);
+
+	std::cout << std::endl;
+
+ 	form = new PresidentialPardonForm("Pardon");
+	std::cout << *form << std::endl;
+	
+	std::cout << "---Trying to execute unsigned form" << std::endl;
  	try
  	{
- 		form = new PresidentialPardonForm("28Z");
- 		form->execute(bob);
- 		delete form;
- 		form = NULL;
+ 		form->execute(A);
  	}
  	catch (std::exception &e)
  	{
  		std::cout << e.what() << std::endl;
  	}
- 
- 	try
+
+	std::cout << "---Sign form then trying to execute with grade bellow" << std::endl;
+	try
  	{
- 		form = new PresidentialPardonForm("28A");
- 		form->beSigned(bob);
- 		form->execute(bob);
- 		delete form;
- 		form = NULL;
+ 		form->beSigned(B);
+		form->execute(A);
  	}
  	catch (std::exception &e)
  	{
  		std::cout << e.what() << std::endl;
  	}
- 
- 
- 	try
+
+	std::cout << "---Execute form" << std::endl;
+	try
  	{
- 		form = new RobotomyRequestForm("28B");
- 		form->beSigned(bob);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		form->execute(phil);
- 		delete form;
- 		form = NULL;
+		form->execute(B);
  	}
  	catch (std::exception &e)
  	{
  		std::cout << e.what() << std::endl;
  	}
- 
- 
+	
+	std::cout << std::endl;
+	delete form;
+	std::cout << std::endl;
+
+	form = new RobotomyRequestForm("Drill");
+	std::cout << *form << std::endl;
+	std::cout << "---Sign and execute form many times" << std::endl;
  	try
  	{
- 		form = new ShrubberyCreationForm("28C");
- 		form->beSigned(bob);
- 		form->execute(phil);
- 		form->execute(luc);
- 		delete form;
- 		form = NULL;
+		form->beSigned(B);
+		form->execute(B);
+		form->execute(B);
+		form->execute(B);
+		form->execute(B);
+		form->execute(B);
+		form->execute(B);
  	}
  	catch (std::exception &e)
  	{
  		std::cout << e.what() << std::endl;
  	}
- 
- 	return 0;
+
+	std::cout << std::endl;
+	delete form;
+	std::cout << std::endl;
+
+ 	form = new ShrubberyCreationForm("Trees");
+	std::cout << *form << std::endl;
+	std::cout << "---Sign and execute form" << std::endl;
+ 	try
+ 	{
+		form->beSigned(B);
+		form->execute(B);
+ 	}
+ 	catch (std::exception &e)
+ 	{
+ 		std::cout << e.what() << std::endl;
+ 	}
+
+	std::cout << std::endl;
+	delete form;
 }
