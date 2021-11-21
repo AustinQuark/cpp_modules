@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:26:39 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/21 16:38:43 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/20 22:04:11 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "Form.hpp"
-# include <cstdlib>
 
-class RobotomyRequestForm : public Form
+class PresidentialPardonForm : public Form
 {
     private:
         std::string _target;
 
     public:
-        RobotomyRequestForm();
-        RobotomyRequestForm(const std::string &target);
-        RobotomyRequestForm(const RobotomyRequestForm &form);
-        RobotomyRequestForm &operator=(RobotomyRequestForm const &form);
-        ~RobotomyRequestForm();
+        PresidentialPardonForm();
+        PresidentialPardonForm(const std::string &target);
+        PresidentialPardonForm(const PresidentialPardonForm &form);
+        PresidentialPardonForm &operator=(PresidentialPardonForm const &form);
+        ~PresidentialPardonForm();
 
         std::string const &getTarget() const;
 

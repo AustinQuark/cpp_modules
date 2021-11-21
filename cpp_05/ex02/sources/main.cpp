@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 00:23:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/21 05:29:12 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:45:06 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../headers/PresidentialPardonForm.hpp"
 #include "../headers/RobotomyRequestForm.hpp"
 #include "../headers/ShrubberyCreationForm.hpp"
+#include <unistd.h>
 
 int main(void)
 {
@@ -68,10 +69,15 @@ int main(void)
  	{
 		form->beSigned(B);
 		form->execute(B);
+		sleep(1);
 		form->execute(B);
+		sleep(1);
 		form->execute(B);
+		sleep(1);
 		form->execute(B);
+		sleep(1);
 		form->execute(B);
+		sleep(1);
 		form->execute(B);
  	}
  	catch (std::exception &e)

@@ -48,7 +48,6 @@ void RobotomyRequestForm::action() const
 {
     std::cout << "RiiiiiiizzZZZ..." << std::endl;
     std::cout << this->_target;
-    srand (time(NULL));
     if (rand() % 2)
         std::cout << " robotomization successfull";
     else
