@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:21:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/24 15:04:07 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/24 15:25:49 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
 
 typedef enum e_type
 {
@@ -29,7 +30,12 @@ class Conversion
 {
     private:
         std::string _input;
-        t_type _typeInput;
+        //t_type _typeInput;
+        double _inputValue;
+        //char charValue;
+        //int intValue;
+        //float floatValue;
+        //double doubleValue;
 
     public:
         Conversion();
@@ -41,8 +47,7 @@ class Conversion
         void setInput(std::string &input);
         std::string const &getInput() const;
 
-        void defineType();
-        t_type getTypeInput() const;
+        void convertInput();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:19:13 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/24 15:03:59 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/24 15:27:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void conversion(std::string input)
 {
     Conversion a(input);
 
-    a.defineType();
-
-    std::cout << a.getTypeInput() << std::endl;
+    a.convertInput();
 }
 
 int main(int ac, char **av)
