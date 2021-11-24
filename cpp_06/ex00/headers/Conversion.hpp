@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:21:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/24 15:25:49 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/24 20:44:39 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ typedef enum e_type
     Int,
     Float,
     Double,
-    none
+    none,
+    invalid
 }            t_type;
 
 class Conversion
 {
     private:
         std::string _input;
-        //t_type _typeInput;
-        double _inputValue;
+        t_type _typeInput;
+        //double _inputValue;
         //char charValue;
         //int intValue;
         //float floatValue;
         //double doubleValue;
+        void evalCharacter() const;
 
     public:
+        //Remplir les fonctions cannonique une fois tout fini
         Conversion();
         Conversion(std::string &input);
         Conversion(Conversion const &conversion);
@@ -47,7 +50,7 @@ class Conversion
         void setInput(std::string &input);
         std::string const &getInput() const;
 
-        void convertInput();
+        t_type defineType();
 };
 
 #endif

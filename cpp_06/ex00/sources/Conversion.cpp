@@ -6,18 +6,18 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:23:10 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/24 15:26:34 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/24 20:58:51 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/Conversion.hpp"
 
-Conversion::Conversion()
+Conversion::Conversion() : _input("0")
 {
 
 }
 
-Conversion::Conversion(std::string &input) : _input(input)
+Conversion::Conversion(std::string &input) : _input(input), _typeInput(none)
 {
 
 }
@@ -48,8 +48,40 @@ std::string const &Conversion::getInput() const
     return (this->_input);
 }
 
-void Conversion::convertInput()
+void Conversion::evalCharacter(char c) const
 {
-    this->_inputValue = atof(this->_input.c_str());
-    std::cout << this->_inputValue << std::endl;
+    static int digit = 0;
+    static bool f = false;
+    static bool sign = false;
+    static bool exponent = false;
+    static bool point = false;
+
+    if (c == '+' || c == '-')
+    {
+        if (sign)
+            this->_typeInput = invalid;
+        else
+            sign = true;
+    }
+    if (isdigit(c))
+    {
+        if (digit == 0 && exponent)
+            this->_typeInput = invalid;
+        else if (digit == 0)
+            digit++;
+        else if (point)
+        {
+            digit++;
+            point = false;
+        }   
+    }
+    if (c == '.')
+        point = true;
+    
+}
+
+t_type Conversion::defineType()
+{
+    for (unsigned int i = 0; this->_input[i] && this->_typeInput != invalid; i++)
+        this->evalCharacter(this->_input[i]);
 }
