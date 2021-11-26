@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:19:13 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/24 20:29:58 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/26 01:59:43 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void conversion(std::string input)
 {
     Conversion a(input);
 
-
+    a.convertInput();
+    std::cout << a.getType() << std::endl;
+    a.displayResult();
 }
 
 int main(int ac, char **av)
@@ -25,9 +27,4 @@ int main(int ac, char **av)
         std::cout << "Enter one and only one argument" << std::endl;
     else
         conversion(av[1]);
-
-    char **rest = new char*;
-    std::cout << 56.23e34 << std::endl;
-    std::cout << "rest : " << *rest << std::endl;
-    delete rest;
 }
