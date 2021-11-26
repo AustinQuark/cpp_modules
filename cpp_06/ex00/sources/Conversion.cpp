@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:23:10 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/26 18:05:27 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/26 19:50:22 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Conversion::Conversion() : _input("0"), _typeInput(none)
 
     this->oorFloat = false;
     this->oorInt = false;
+    this->oorDouble = false;
 }
 
 Conversion::Conversion(std::string &input) : _input(input), _typeInput(none)
@@ -32,6 +33,7 @@ Conversion::Conversion(std::string &input) : _input(input), _typeInput(none)
 
     this->oorFloat = false;
     this->oorInt = false;
+    this->oorDouble = false;
 }
 
 Conversion::Conversion(Conversion const &conversion)
@@ -89,17 +91,21 @@ void Conversion::displayDouble() const
         if (this->oorInt)
             std::cout << "Impossible";
         else
-            std::cout << static_cast<double>(this->intValue) << ".0";
+        {
+            std::cout << static_cast<double>(this->intValue);
+            if (this->intValue < 1000000)
+                std::cout << ".0";
+        }
     }
     else if (this->_typeInput == Float)
     {
-        if (this->oorFloat || this->inputValue < std::numeric_limits<float>::min() || this->inputValue > std::numeric_limits<float>::max())
+        if (this->oorFloat || (this->inputValue > std::numeric_limits<float>::max() && inputValue != std::numeric_limits<double>::infinity()))
             std::cout << "Impossible";
         else
         {
             float *temp = new float;
             std::cout << static_cast<double>(this->floatValue);
-            if (modf(this->floatValue, temp) == 0)
+            if (modf(this->floatValue, temp) == 0 && abs(this->floatValue) < 1000000)
                 std::cout << ".0";
             delete temp;
         }
@@ -112,7 +118,7 @@ void Conversion::displayDouble() const
         {
             double *temp = new double;
             std::cout << this->doubleValue;
-            if (modf(this->doubleValue, temp) == 0)
+            if (modf(this->doubleValue, temp) == 0 && abs(this->doubleValue) < 1000000)
                 std::cout << ".0";
             delete temp;
         }
@@ -126,17 +132,21 @@ void Conversion::displayFloat() const
         if (this->oorInt)
             std::cout << "Impossible";
         else
-            std::cout << static_cast<float>(this->intValue) << ".0f";
+        {
+            std::cout << static_cast<float>(this->intValue);
+            if (this->intValue < 1000000)
+                std::cout << ".0f";
+        }
     }
     else if (this->_typeInput == Float)
     {
-        if (this->oorFloat || this->inputValue < std::numeric_limits<float>::min() || this->inputValue > std::numeric_limits<float>::max())
+        if (this->oorFloat || (this->inputValue > std::numeric_limits<float>::max() && inputValue != std::numeric_limits<double>::infinity()))
             std::cout << "Impossible";
         else
         {
             float *temp = new float;
             std::cout << this->floatValue;
-            if (modf(this->floatValue, temp) == 0)
+            if (modf(this->floatValue, temp) == 0 && abs(this->floatValue) < 1000000)
                 std::cout << ".0";
             std::cout << "f";
             delete temp;
@@ -144,13 +154,13 @@ void Conversion::displayFloat() const
     }
     else if (this->_typeInput == Double)
     {
-        if (this->oorDouble || this->inputValue < std::numeric_limits<float>::min() || this->inputValue > std::numeric_limits<float>::max())
+        if (this->oorDouble || (this->inputValue > std::numeric_limits<float>::max() && inputValue != std::numeric_limits<double>::infinity()))
             std::cout << "Impossible";
         else
         {
             double *temp = new double;
             std::cout << static_cast<float>(this->doubleValue);
-            if (modf(this->doubleValue, temp) == 0)
+            if (modf(this->doubleValue, temp) == 0 && abs(this->doubleValue) < 1000000)
                 std::cout << ".0";
             std::cout << "f";
             delete temp;
@@ -187,10 +197,10 @@ void Conversion::displayChar() const
 {
     if (this->_typeInput == Int)
     {
-        if (isprint(this->intValue))
-            std::cout << "'" << static_cast<char>(this->intValue) << "'";
-        else if (this->intValue < std::numeric_limits<char>::min() || this->intValue > std::numeric_limits<char>::max())
+        if (this->oorInt || this->intValue < std::numeric_limits<char>::min() || this->intValue > std::numeric_limits<char>::max())
             std::cout << "Impossible";
+        else if (isprint(this->intValue))
+            std::cout << "'" << static_cast<char>(this->intValue) << "'";
         else
             std::cout << "Non displayable";
     }
@@ -198,7 +208,7 @@ void Conversion::displayChar() const
     {
         if (this->doubleValue - static_cast<int>(this->doubleValue) != 0)
             std::cout << "Impossible";
-        else if (static_cast<int>(this->doubleValue) < std::numeric_limits<char>::min() || static_cast<int>(this->doubleValue) > std::numeric_limits<char>::max())
+        else if (this->oorDouble || static_cast<int>(this->doubleValue) < std::numeric_limits<char>::min() || static_cast<int>(this->doubleValue) > std::numeric_limits<char>::max())
             std::cout << "Impossible";
         else if (isprint(static_cast<char>(this->doubleValue)))
             std::cout << "'" << static_cast<char>(this->doubleValue) << "'"; 
@@ -209,7 +219,7 @@ void Conversion::displayChar() const
     {
         if (this->floatValue - static_cast<int>(this->floatValue) != 0)
             std::cout << "Impossible";
-        else if (static_cast<int>(this->floatValue) < std::numeric_limits<char>::min() || static_cast<int>(this->floatValue) > std::numeric_limits<char>::max())
+        else if (this->oorFloat || static_cast<int>(this->floatValue) < std::numeric_limits<char>::min() || static_cast<int>(this->floatValue) > std::numeric_limits<char>::max())
             std::cout << "Impossible";
         else if (isprint(static_cast<char>(this->floatValue)))
             std::cout << "'" << static_cast<char>(this->floatValue) << "'"; 
@@ -218,16 +228,13 @@ void Conversion::displayChar() const
     }
 }
 
-
-
 void Conversion::convertInput()
 {
     this->defineType();
-    if (this->_typeInput == invalid)
+    if (this->_typeInput == invalid || this->_typeInput == none)
         std::cout << "Input is invalid" << std::endl;
     else
     {
-        std::cout << this->getType() << std::endl;
         this->acquireValue();
         this->displayResult();
     }
@@ -283,7 +290,7 @@ void Conversion::defineType()
         }
         else if (*it == '-' || *it == '+')
         {
-            if (!isdigit(*(it + 1)))
+            if (!isdigit(*(it + 1)) && *(it + 1) != '.')
                 this->_typeInput = invalid;
         }
         else if (it != this->_input.end())
@@ -332,14 +339,14 @@ void Conversion::acquireValue()
     }
     else if (this->_typeInput == Float)
     {
-        if (inputValue < std::numeric_limits<float>::min() || inputValue > std::numeric_limits<float>::max())
+        if (inputValue > std::numeric_limits<float>::max() && inputValue != std::numeric_limits<float>::infinity())
             this->oorFloat = true;
         this->floatValue = static_cast<float>(inputValue);
     }
     else if (this->_typeInput == Double)
     {
-        if (inputValue < std::numeric_limits<double>::min() || inputValue > std::numeric_limits<double>::max())
-            this->oorFloat = true;    
+        if (inputValue > std::numeric_limits<double>::max() && inputValue != std::numeric_limits<double>::infinity())
+            this->oorDouble = true;    
         this->doubleValue = inputValue;
     }
 }
