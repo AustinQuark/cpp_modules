@@ -6,14 +6,14 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/26 23:57:59 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/27 00:23:52 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = few
+NAME = iter
 
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -Wconversion -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS = sources/main.cpp
 
