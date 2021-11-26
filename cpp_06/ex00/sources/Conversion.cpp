@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:23:10 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/26 02:46:39 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/26 18:05:27 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 Conversion::Conversion() : _input("0"), _typeInput(none)
 {
+    this->charValue = 0;
+    this->intValue = 0;
+    this->floatValue = 0.0f;
+    this->doubleValue = 0.0;
 
+    this->oorFloat = false;
+    this->oorInt = false;
 }
 
 Conversion::Conversion(std::string &input) : _input(input), _typeInput(none)
 {
+    this->charValue = 0;
+    this->intValue = 0;
+    this->floatValue = 0.0f;
+    this->doubleValue = 0.0;
 
+    this->oorFloat = false;
+    this->oorInt = false;
 }
 
 Conversion::Conversion(Conversion const &conversion)
@@ -48,29 +60,177 @@ std::string const &Conversion::getInput() const
     return (this->_input);
 }
 
+std::string Conversion::getType() const
+{
+    std::string type[6] = {"char", "int", "float", "double", "none", "invalid"};
+    return (type[this->_typeInput]);
+}
+
+void Conversion::displayResult() const
+{
+    std::cout << "char : ";
+    this->displayChar();
+    std::cout << std::endl;
+    std::cout << "int : ";
+    this->displayInt();
+    std::cout << std::endl;
+    std::cout << "float : ";
+    this->displayFloat();
+    std::cout << std::endl;
+    std::cout << "double : ";
+    this->displayDouble();
+    std::cout << std::endl;
+}
+
+void Conversion::displayDouble() const
+{
+    if (this->_typeInput == Int)
+    {
+        if (this->oorInt)
+            std::cout << "Impossible";
+        else
+            std::cout << static_cast<double>(this->intValue) << ".0";
+    }
+    else if (this->_typeInput == Float)
+    {
+        if (this->oorFloat || this->inputValue < std::numeric_limits<float>::min() || this->inputValue > std::numeric_limits<float>::max())
+            std::cout << "Impossible";
+        else
+        {
+            float *temp = new float;
+            std::cout << static_cast<double>(this->floatValue);
+            if (modf(this->floatValue, temp) == 0)
+                std::cout << ".0";
+            delete temp;
+        }
+    }
+    else if (this->_typeInput == Double)
+    {
+        if (this->oorDouble)
+            std::cout << "Impossible";
+        else
+        {
+            double *temp = new double;
+            std::cout << this->doubleValue;
+            if (modf(this->doubleValue, temp) == 0)
+                std::cout << ".0";
+            delete temp;
+        }
+    }
+}
+
+void Conversion::displayFloat() const
+{
+    if (this->_typeInput == Int)
+    {
+        if (this->oorInt)
+            std::cout << "Impossible";
+        else
+            std::cout << static_cast<float>(this->intValue) << ".0f";
+    }
+    else if (this->_typeInput == Float)
+    {
+        if (this->oorFloat || this->inputValue < std::numeric_limits<float>::min() || this->inputValue > std::numeric_limits<float>::max())
+            std::cout << "Impossible";
+        else
+        {
+            float *temp = new float;
+            std::cout << this->floatValue;
+            if (modf(this->floatValue, temp) == 0)
+                std::cout << ".0";
+            std::cout << "f";
+            delete temp;
+        }
+    }
+    else if (this->_typeInput == Double)
+    {
+        if (this->oorDouble || this->inputValue < std::numeric_limits<float>::min() || this->inputValue > std::numeric_limits<float>::max())
+            std::cout << "Impossible";
+        else
+        {
+            double *temp = new double;
+            std::cout << static_cast<float>(this->doubleValue);
+            if (modf(this->doubleValue, temp) == 0)
+                std::cout << ".0";
+            std::cout << "f";
+            delete temp;
+        }
+    }
+}
+
+void Conversion::displayInt() const
+{
+    if (this->_typeInput == Int)
+    {
+        if (this->oorInt)
+            std::cout << "Impossible";
+        else
+            std::cout << this->intValue;
+    }
+    else if (this->_typeInput == Float)
+    {
+        if (this->oorFloat || this->inputValue - static_cast<int>(this->inputValue) != 0.0f || this->inputValue < std::numeric_limits<int>::min() || this->inputValue > std::numeric_limits<int>::max())
+            std::cout << "Impossible";
+        else
+            std::cout << static_cast<int>(this->floatValue);
+    }
+    else if (this->_typeInput == Double)
+    {
+        if (this->oorDouble || this->inputValue - static_cast<int>(this->inputValue) != 0.0 || this->inputValue < std::numeric_limits<int>::min() || this->inputValue > std::numeric_limits<int>::max())
+            std::cout << "Impossible";
+        else
+            std::cout << static_cast<int>(this->doubleValue);
+    }
+}
+
+void Conversion::displayChar() const
+{
+    if (this->_typeInput == Int)
+    {
+        if (isprint(this->intValue))
+            std::cout << "'" << static_cast<char>(this->intValue) << "'";
+        else if (this->intValue < std::numeric_limits<char>::min() || this->intValue > std::numeric_limits<char>::max())
+            std::cout << "Impossible";
+        else
+            std::cout << "Non displayable";
+    }
+    else if (this->_typeInput == Double)
+    {
+        if (this->doubleValue - static_cast<int>(this->doubleValue) != 0)
+            std::cout << "Impossible";
+        else if (static_cast<int>(this->doubleValue) < std::numeric_limits<char>::min() || static_cast<int>(this->doubleValue) > std::numeric_limits<char>::max())
+            std::cout << "Impossible";
+        else if (isprint(static_cast<char>(this->doubleValue)))
+            std::cout << "'" << static_cast<char>(this->doubleValue) << "'"; 
+        else
+            std::cout << "Non displayable";
+    }
+    else if (this->_typeInput == Float)
+    {
+        if (this->floatValue - static_cast<int>(this->floatValue) != 0)
+            std::cout << "Impossible";
+        else if (static_cast<int>(this->floatValue) < std::numeric_limits<char>::min() || static_cast<int>(this->floatValue) > std::numeric_limits<char>::max())
+            std::cout << "Impossible";
+        else if (isprint(static_cast<char>(this->floatValue)))
+            std::cout << "'" << static_cast<char>(this->floatValue) << "'"; 
+        else
+            std::cout << "Non displayable";
+    }
+}
+
+
+
 void Conversion::convertInput()
 {
-    void *speValue = NULL;
-
     this->defineType();
-    switch (this->_typeInput)
+    if (this->_typeInput == invalid)
+        std::cout << "Input is invalid" << std::endl;
+    else
     {
-        case Int:    this->intValue = static_cast<int>(strtod(this->_input.c_str(), NULL));
-                     speValue = &this->intValue;
-                     break;
-        case Float:  this->floatValue = static_cast<float>(strtod(this->_input.c_str(), NULL));
-                     speValue = &this->floatValue;
-                     break;
-        case Double: this->doubleValue = strtod(this->_input.c_str(), NULL);
-                     speValue = &this->doubleValue;
-                     break;
-        case Char:   break;
-        case none:   break;
-        case invalid: break;
+        std::cout << this->getType() << std::endl;
+        this->acquireValue();
+        this->displayResult();
     }
-    if (!speValue)
-        return;
-    this->setScalarValues(speValue);
 }
 
 std::string::iterator loopThroughtDigits(std::string::iterator it)
@@ -158,24 +318,28 @@ void Conversion::defineType()
     }
 }
 
-void Conversion::setScalarValues(void *speValue)
+void Conversion::acquireValue()
 {
-    this->charValue = static_cast<char>(*speValue);
-    this->intValue = static_cast<int>(*speValue);
-    this->floatValue = static_cast<float>(*speValue);
-    this->doubleValue = static_cast<double>(*speValue);
-}
+    double inputValue = strtod(this->_input.c_str(), NULL);
 
-std::string Conversion::getType() const
-{
-    std::string type[6] = {"char", "int", "float", "double", "none", "invalid"};
-    return (type[this->_typeInput]);
-}
+    this->inputValue = inputValue;
 
-void Conversion::displayResult() const
-{
-    std::cout << "char : " << this->charValue << std::endl;
-    std::cout << "int : " << this->intValue << std::endl;
-    std::cout << "float : " << this->floatValue << std::endl;
-    std::cout << "double : " << this->doubleValue << std::endl;
+    if (this->_typeInput == Int)
+    {
+        if (inputValue < std::numeric_limits<int>::min() || inputValue > std::numeric_limits<int>::max())
+            this->oorInt = true;
+        this->intValue = static_cast<int>(inputValue);
+    }
+    else if (this->_typeInput == Float)
+    {
+        if (inputValue < std::numeric_limits<float>::min() || inputValue > std::numeric_limits<float>::max())
+            this->oorFloat = true;
+        this->floatValue = static_cast<float>(inputValue);
+    }
+    else if (this->_typeInput == Double)
+    {
+        if (inputValue < std::numeric_limits<double>::min() || inputValue > std::numeric_limits<double>::max())
+            this->oorFloat = true;    
+        this->doubleValue = inputValue;
+    }
 }
