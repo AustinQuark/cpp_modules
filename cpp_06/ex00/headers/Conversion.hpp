@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:21:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/26 17:37:05 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/26 20:09:57 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ class Conversion
 
 
         public:
-        //Remplir les fonctions cannonique une fois tout fini
         Conversion();
         Conversion(std::string &input);
         Conversion(Conversion const &conversion);
@@ -69,6 +68,7 @@ class Conversion
         void convertInput();
     
         std::string getType() const;
+        t_type getEnumType() const;
 };
 
 #endif
