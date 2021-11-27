@@ -6,15 +6,14 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 21:48:48 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 22:35:12 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/Span.hpp"
 
-#define RANGE 10000000000
-#define SIZE 1000000
-
+#define RANGE 2147483647
+#define SIZE 100000000
 
 Span *allocateSpan(unsigned int N)
 {
@@ -22,7 +21,7 @@ Span *allocateSpan(unsigned int N)
 
     srand(time(NULL));
     for (unsigned int i = 0; i < N; i++)
-        nw->addNumber(rand() % RANGE);
+        nw->addNumber((rand() % static_cast<unsigned int>(RANGE) * static_cast<unsigned int>(2)) - RANGE);
     return (nw);
 }
 
@@ -30,15 +29,15 @@ int main(void)
 {
     std::cout << "---Simple test" << std::endl;
     Span sp = Span(5);
-    sp.addNumber(5);
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(9);
-    sp.addNumber(11);
+    sp.addNumber(-42);
+    sp.addNumber(42);
+    sp.addNumber(1);
+    sp.addNumber(2);
+    sp.addNumber(0);
     std::cout << "LongestSpan  : " << sp.longestSpan() << std::endl;
     std::cout << "ShortestSpan : " << sp.shortestSpan() << std::endl;
 
-    std::cout << "---Big (?) test with random numbers beetween 0 and " << RANGE << std::endl;
+    std::cout << "---Test with Span of size " << SIZE << " filled with random numbers beetween -RANGE and +RANGE (RANGE = " << RANGE << ", theorical max longestSpan = " << 2.0 * RANGE << ")" << std::endl;
     Span *span = allocateSpan(SIZE);
     std::cout << "LongestSpan  : " << span->longestSpan() << std::endl;
     std::cout << "ShortestSpan : " << span->shortestSpan() << std::endl;
@@ -78,5 +77,4 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
-    
 }

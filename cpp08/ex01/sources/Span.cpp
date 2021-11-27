@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:09:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 21:41:04 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 22:01:22 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,27 +57,33 @@ int Span::canGetSpan() const
     return (1);
 }
 
-int Span::shortestSpan() const
+unsigned int Span::shortestSpan() const
 {
     std::vector<int> temp = this->list;
-    int span = -1;
+    unsigned int span = 0;
+    bool first_done = false;
 
     if (this->canGetSpan())
-        return -1;
+        return (0);
     sort(temp.begin(), temp.end());
     for (std::vector<int>::iterator it = temp.begin(); it < temp.end() - 1; it++)
-        if (span == -1 || *(it + 1) - *it < span)
+    {
+        if (!first_done || static_cast<unsigned int>(*(it + 1) - *it) < span)
+        {
+            first_done = true;
             span = *(it + 1) - *it;
+        }
+    }
     return (span);
 }
 
-int Span::longestSpan() const
+unsigned int Span::longestSpan() const
 {
     std::vector<int> temp = this->list;
-    int span;
+    unsigned int span;
 
     if (this->canGetSpan())
-        return (-1);
+        return (0);
     sort(temp.begin(), temp.end());
     span = *(temp.end() - 1) - *temp.begin();
     return (span);

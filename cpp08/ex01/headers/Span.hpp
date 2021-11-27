@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:04:27 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 21:21:17 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 21:53:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Span
 
         void addNumber(int toAdd);
 
-        int shortestSpan() const;
-        int longestSpan() const;
+        unsigned int shortestSpan() const;
+        unsigned int longestSpan() const;
 };
 
 #endif
