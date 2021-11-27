@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 00:47:46 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 01:38:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 02:04:33 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ template <typename T> class Array
         unsigned int _size;
 
     public:
-        Array() : array(new T[0]), _size(0)
+        Array<T>() : array(NULL), _size(0)
         {
             std::cout << "Default constructor called" << std::endl;
         }
 
-        Array(unsigned int n) : array(new T[n]), _size(n)
+        Array<T>(unsigned int n) : array(new T[n]), _size(n)
         {
             std::cout << "Constructor called" << std::endl;
         }
         
-        Array(Array const &array) : array(new T[array.size()])
+        Array<T>(Array<T> const &array) : array(new T[array.size()]), _size(array.size())
         {
             std::cout << "Copy constructor called" << std::endl;
-            for (unsigned int i = 0; i < this->_size(); i++)
+            for (unsigned int i = 0; i < this->_size; i++)
                 this->array[i] = array[i];
         }
 
-        Array &operator=(Array const &array)
+        Array<T> &operator=(Array<T> const &array)
         {
             std::cout << "Assigment operator called" << std::endl;
             delete [] this->array;
@@ -50,16 +50,16 @@ template <typename T> class Array
             return (*this);
         }
 
-        T &operator[](unsigned int n)
+        T &operator[](const int n)
         {
-            if (n >= this->_size)
+            if (n >= static_cast<int>(this->_size) || n < 0)
                 throw std::overflow_error("Out of range access member");
             return (this->array[n]);
         }
         
-        const T &operator[](unsigned int n) const
+        const T &operator[](const int n) const
         {
-            if (n >= this->_size)
+            if (static_cast<unsigned int>(n) >= this->_size || n < 0)
                 throw std::overflow_error("Out of range access member");
             return (this->array[n]);
         }
@@ -67,6 +67,12 @@ template <typename T> class Array
         unsigned int size() const
         {
             return (this->_size);
+        }
+
+        ~Array<T>()
+        {
+            std::cout << "Destructor called" << std::endl;
+            delete[] this->array;
         }
 };
 
