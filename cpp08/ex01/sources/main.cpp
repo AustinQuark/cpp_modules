@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 22:35:12 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 22:39:06 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ int main(void)
         std::cout << e.what() << std::endl;
     }
 
-    std::cout << "--Trying to get longestSpan of size 5 with no element" << std::endl;
+    std::cout << "--Trying to get longestSpan of size 5 with no element (prooving it's size dependant and not capacity dependant)" << std::endl;
+    Span a(5);
     try
     {
-        Span a(5);
-
         std::cout << a.longestSpan() << std::endl;
     }
     catch(std::exception& e)
