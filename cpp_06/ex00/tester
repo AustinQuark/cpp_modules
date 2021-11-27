@@ -2,8 +2,8 @@
  #!/bin/bash
  
  mk_test() {
- 	echo "./a.out" "$*"
- 	./a.out $@
+ 	echo "./convert" "$*"
+ 	./convert $@
  	echo "check output and press any key to continue"
  	read -n1
  	echo ""

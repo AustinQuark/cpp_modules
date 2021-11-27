@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:21:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/26 20:09:57 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 05:05:08 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ class Conversion
         void displayFloat() const;
         void displayDouble() const;
 
+        size_t loopThroughtDigits(size_t i);
         void defineType();
         void acquireValue();
         void displayResult() const;

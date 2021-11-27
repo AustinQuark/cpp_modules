@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:23:10 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/26 20:15:53 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/27 05:05:32 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,11 @@ void Conversion::convertInput()
     }
 }
 
-std::string::iterator loopThroughtDigits(std::string::iterator it)
+size_t Conversion::loopThroughtDigits(size_t i)
 {
-    while (isdigit(*(it + 1)))
-        it++;
-    return (it);
+    while (isdigit(this->_input[i + 1]))
+        i++;
+    return (i);
 }
 
 void Conversion::defineType()
@@ -120,45 +120,45 @@ void Conversion::defineType()
     bool digits = false;
     
     //Loop throught input checking if invalid and characters meet
-    for (std::string::iterator it = this->_input.begin(); it < this->_input.end() && this->_typeInput != invalid; it++)
+    for (size_t i = 0; i < this->_input.length() && this->_typeInput != invalid; i++)
     {
-        if (isdigit(*it))
+        if (isdigit(this->_input[i]))
         {
             if (f)
                 this->_typeInput = invalid;
             else
                 digits = true;
-            it = loopThroughtDigits(it);
-            if (*(it + 1) == '+' || *(it + 1) == '-')
+            i = this->loopThroughtDigits(i);
+            if (this->_input[i + 1] == '+' || this->_input[i + 1] == '-')
                 this->_typeInput = invalid;
         }
-        else if (*it == '.')
+        else if (this->_input[i] == '.')
         {
-            if (point || exponent || f || (!isdigit(*(it + 1)) && !digits))
+            if (point || exponent || f || (!isdigit(this->_input[i + 1]) && !digits))
                 this->_typeInput = invalid;
             else
                 point = true;
         }
-        else if (*it == 'e' || *it == 'E')
+        else if (this->_input[i] == 'e' || this->_input[i] == 'E')
         {
-            if (exponent || f || (!isdigit(*(it + 1)) && (*(it + 1) != '-' && *(it + 1) != '+')))
+            if (exponent || f || (!isdigit(this->_input[i + 1]) && (this->_input[i + 1] != '-' && this->_input[i + 1] != '+')))
                 this->_typeInput = invalid;
             else   
                 exponent = true;
         }
-        else if (*it == 'f' || *it == 'F')
+        else if (this->_input[i] == 'f' || this->_input[i] == 'F')
         {
             if (f)
                 this->_typeInput = invalid;
             else   
                 f = true;
         }
-        else if (*it == '-' || *it == '+')
+        else if (this->_input[i] == '-' || this->_input[i] == '+')
         {
-            if (!isdigit(*(it + 1)) && *(it + 1) != '.')
+            if (!isdigit(this->_input[i + 1]) && this->_input[i + 1] != '.')
                 this->_typeInput = invalid;
         }
-        else if (it != this->_input.end())
+        else if (i != this->_input.length())
             this->_typeInput = invalid;
     }
 
@@ -177,11 +177,11 @@ void Conversion::defineType()
     else if (this->_typeInput == invalid) //Special cases
     {
         std::string specials[6] = {"+inf", "-inf", "nan", "+inff", "-inff", "nanf"};
-        for (unsigned int i = 0; i < 6; i++)
+        for (unsigned int j = 0; j < 6; j++)
         {
-            if (this->_input == specials[i])
+            if (this->_input == specials[j])
             {
-                if (i < 3)
+                if (j < 3)
                     this->_typeInput = Double;
                 else
                     this->_typeInput = Float;
