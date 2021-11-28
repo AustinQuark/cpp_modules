@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/28 18:49:33 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 20:35:06 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int main(void)
     
     std::cout << "---AddFromIterators test" << std::endl;
     Span i = Span(5);
-    std::vector<int> t;
+    std::vector<int> *t = n;
     t.push_back(-42);
     t.push_back(42);
     t.push_back(1);
     t.push_back(2);
     t.push_back(3);
-    i.addFromIterators(t.begin(), t.end());
-    
+    std::vector<int>::iterator o;
+    i.addFromIterators(t.begin(), t.end(), t);
     std::cout << "LongestSpan  : " << i.longestSpan() << std::endl;
     std::cout << "ShortestSpan : " << i.shortestSpan() << std::endl;
 

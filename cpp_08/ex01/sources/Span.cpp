@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:09:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/28 18:48:26 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 20:33:10 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,15 @@ void Span::addNumber(int toAdd)
         this->list.push_back(toAdd);
 }
 
-void Span::addFromIterators(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+void Span::addFromIterators(std::vector<int>::iterator begin, std::vector<int>::iterator end, std::vector<int> add)
 {
-    while (begin != end && *begin)
+    if (begin < add.begin() || begin > add.end() || end < add.begin() || end > add.end())
+        throw std::logic_error("Iterators not part of third vector argument");
+    else
     {
-        this->addNumber(*begin);
-        begin++;
+        std::vector<int> nw(begin, end);
+        for (std::vector<int>::iterator it = begin; it < end; it++)
+            this->addNumber(*it);
     }
 }
 
