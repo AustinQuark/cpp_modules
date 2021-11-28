@@ -6,17 +6,18 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:21:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 05:05:08 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:56:19 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERSION_HPP
 # define CONVERSION_HPP
 
-# include <string>
-# include <iostream>
-# include <cstdlib>
-# include <cmath>
+# include<string>
+# include<iostream>
+# include<cstdlib>
+# include<cmath>
+# include<limits>
 
 typedef enum e_type
 {

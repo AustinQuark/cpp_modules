@@ -6,13 +6,13 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/26 22:59:28 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/28 17:55:01 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = true_type
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -Wconversion -std=c++98 
 
 SRCS = sources/main.cpp

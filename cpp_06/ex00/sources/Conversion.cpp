@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:23:10 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 05:05:32 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 18:10:07 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,9 +251,9 @@ void Conversion::displayDouble() const
             std::cout << "Impossible";
         else
         {
-            float *temp = new float;
+            double *temp = new double;
             std::cout << static_cast<double>(this->floatValue);
-            if (modf(this->floatValue, temp) == 0 && abs(this->floatValue) < 1000000)
+            if (modf(this->floatValue, temp) == 0 && fabs(this->floatValue) < 1000000)
                 std::cout << ".0";
             delete temp;
         }
@@ -266,7 +266,7 @@ void Conversion::displayDouble() const
         {
             double *temp = new double;
             std::cout << this->doubleValue;
-            if (modf(this->doubleValue, temp) == 0 && abs(this->doubleValue) < 1000000)
+            if (modf(this->doubleValue, temp) == 0 && fabs(this->doubleValue) < 1000000)
                 std::cout << ".0";
             delete temp;
         }
@@ -292,9 +292,9 @@ void Conversion::displayFloat() const
             std::cout << "Impossible";
         else
         {
-            float *temp = new float;
+            double *temp = new double;
             std::cout << this->floatValue;
-            if (modf(this->floatValue, temp) == 0 && abs(this->floatValue) < 1000000)
+            if (modf(this->floatValue, temp) == 0 && fabs(this->floatValue) < 1000000)
                 std::cout << ".0";
             std::cout << "f";
             delete temp;
@@ -308,7 +308,7 @@ void Conversion::displayFloat() const
         {
             double *temp = new double;
             std::cout << static_cast<float>(this->doubleValue);
-            if (modf(this->doubleValue, temp) == 0 && abs(this->doubleValue) < 1000000)
+            if (modf(this->doubleValue, temp) == 0 && fabs(this->doubleValue) < 1000000)
                 std::cout << ".0";
             std::cout << "f";
             delete temp;
@@ -365,7 +365,7 @@ void Conversion::displayChar() const
     }
     else if (this->_typeInput == Float)
     {
-        if (this->floatValue - static_cast<int>(this->floatValue) != 0)
+        if (this->floatValue - static_cast<float>(static_cast<int>(this->floatValue)) != 0)
             std::cout << "Impossible";
         else if (this->oorFloat || static_cast<int>(this->floatValue) < std::numeric_limits<char>::min() || static_cast<int>(this->floatValue) > std::numeric_limits<char>::max())
             std::cout << "Impossible";
