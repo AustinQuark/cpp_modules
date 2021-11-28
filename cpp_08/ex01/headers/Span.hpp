@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:04:27 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/28 20:23:57 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 00:08:43 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Span
         ~Span();
 
         void addNumber(int toAdd);
-        void addFromIterators(std::vector<int>::iterator begin, std::vector<int>::iterator end, std::vector<int> add);
+        void addFromIterators(std::vector<int>::iterator begin, std::vector<int>::iterator end, std::vector<int> *add);
 
         unsigned int shortestSpan() const;
         unsigned int longestSpan() const;

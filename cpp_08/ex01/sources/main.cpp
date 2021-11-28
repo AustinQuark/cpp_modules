@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/28 20:35:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 00:13:45 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,24 @@ int main(void)
     
     std::cout << "---AddFromIterators test" << std::endl;
     Span i = Span(5);
-    std::vector<int> *t = n;
+    std::vector<int> t;
     t.push_back(-42);
     t.push_back(42);
     t.push_back(1);
     t.push_back(2);
     t.push_back(3);
     std::vector<int>::iterator o;
-    i.addFromIterators(t.begin(), t.end(), t);
-    std::cout << "LongestSpan  : " << i.longestSpan() << std::endl;
-    std::cout << "ShortestSpan : " << i.shortestSpan() << std::endl;
+    try
+    {
+        i.addFromIterators(t.begin(), t.end(), &t);
+        std::cout << "LongestSpan  : " << i.longestSpan() << std::endl;
+        std::cout << "ShortestSpan : " << i.shortestSpan() << std::endl;
+    }
+    catch(std::exception& e)
+    {
+        std::cout << "Error : " << e.what() << std::endl;
+    }
+    
 
     std::cout << "---Test with Span of size " << SIZE << " filled with random numbers beetween -RANGE and +RANGE (RANGE = " << RANGE << ", theorical max longestSpan = " << 2.0 * RANGE << ")" << std::endl;
     Span *span = allocateSpan(SIZE);
