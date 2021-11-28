@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 00:23:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/20 02:03:35 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:46:28 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int main(void)
     {
         mark = new Bureaucrat("mark", 0);
         delete mark;
+
     }
     catch (std::exception &e)
     {
