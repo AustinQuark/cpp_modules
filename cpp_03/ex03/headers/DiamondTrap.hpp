@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 19:25:47 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/15 20:09:18 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:13:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
         DiamondTrap(std::string name);
         DiamondTrap(const DiamondTrap &diamondtrap);
         DiamondTrap &operator=(const DiamondTrap &diamondtrap);
+        ~DiamondTrap();
         void whoAmI(void) const;
 };
 

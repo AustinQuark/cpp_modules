@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 19:31:00 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/15 20:25:48 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:13:58 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ DiamondTrap::DiamondTrap() : ClapTrap()
     this->_hitpoints = FragTrap::getHitpoints();
     this->_attackDamage = FragTrap::getAttackDamage();
     std::cout << "DiamondTrap default constructor called, default name set" << std::endl;
+}
+
+DiamondTrap::~DiamondTrap()
+{
+
+    std::cout << "DiamondTrap destructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)

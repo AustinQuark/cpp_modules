@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 14:20:22 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/17 17:30:51 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:26:35 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 # include <string>
 # include <iostream>
 
-# define IDEAS_SIZE 100
-
 class Brain
 {
     protected:
-        std::string ideas[IDEAS_SIZE];
+        std::string ideas[100];
     
     public:
         Brain();
