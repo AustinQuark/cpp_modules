@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:09:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 22:01:22 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/28 18:48:26 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,15 @@ void Span::addNumber(int toAdd)
         throw std::out_of_range("Can't addNumber to full Span object");
     else
         this->list.push_back(toAdd);
+}
+
+void Span::addFromIterators(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+    while (begin != end && *begin)
+    {
+        this->addNumber(*begin);
+        begin++;
+    }
 }
 
 int Span::canGetSpan() const

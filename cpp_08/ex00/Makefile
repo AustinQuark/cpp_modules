@@ -6,13 +6,13 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/27 14:55:50 by avieira          ###   ########.fr        #
+#    Updated: 2021/11/28 18:15:53 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = easyfind
 
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS = sources/main.cpp
