@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 00:19:52 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/29 15:57:34 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 16:16:51 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MUTANTSTACK_HPP
 
 # include <stack>
+# include <deque>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -21,16 +22,13 @@ class MutantStack : public std::stack<T>
     public:
         typedef typename std::stack<T>::container_type::iterator iterator;
         typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-        typename std::stack<T>::container_type under_type;
 
-        iterator begi() {return (under_type.begin());}
-        const_iterator begin() const {return (under_type.begin());}
-        iterator end() {return (under_type.end());}
-        const_iterator end() const {return (under_type.end());}
-        iterator rend() {return (under_type.rend());}
-        const_iterator rend() const {return (under_type.rend());}
-        
-        //iterator &iterator::operator++() {};
+        iterator begin() {return (std::stack<T>::c.begin());}
+        const_iterator begin() const {return (std::stack<T>::c.begin());}
+        iterator end() {return (std::stack<T>::c.end());}
+        const_iterator end() const {return (std::stack<T>::c.end());}
+        iterator rend() {return (std::stack<T>::c.rend());}
+        const_iterator rend() const {return (std::stack<T>::c.rend());}
 };
 
 #endif

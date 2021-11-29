@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/29 15:58:22 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 16:20:48 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void)
 {
-    MutantStack<int> mstack;
+    std::list<int> mstack;
 
     mstack.push(5);
     mstack.push(17);
@@ -30,8 +30,8 @@ int main(void)
     mstack.push(3); 
     mstack.push(5); 
     mstack.push(737); //[...] mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin(); 
-    MutantStack<int>::iterator ite = mstack.end();
+    std::list<int>::iterator it = mstack.begin(); 
+    std::list<int>::iterator ite = mstack.end();
     
     ++it;
     --it;
