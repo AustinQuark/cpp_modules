@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 00:19:52 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/29 16:16:51 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 16:23:51 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MUTANTSTACK_HPP
 
 # include <stack>
-# include <deque>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -27,6 +26,8 @@ class MutantStack : public std::stack<T>
         const_iterator begin() const {return (std::stack<T>::c.begin());}
         iterator end() {return (std::stack<T>::c.end());}
         const_iterator end() const {return (std::stack<T>::c.end());}
+        iterator rbegin() {return (std::stack<T>::c.rbegin());}
+        const_iterator rbegin() const {return (std::stack<T>::c.rbegin());}
         iterator rend() {return (std::stack<T>::c.rend());}
         const_iterator rend() const {return (std::stack<T>::c.rend());}
 };
