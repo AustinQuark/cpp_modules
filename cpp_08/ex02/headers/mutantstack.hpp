@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 00:19:52 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/29 17:13:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 18:15:19 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
     public:
+        MutantStack<T>();
+        MutantStack<T>(const MutantStack<T> &mstack);
+        MutantStack<T> &operator=(const MutantStack<T> &mstack);
+        ~MutantStack();
+
         typedef typename std::stack<T>::container_type::iterator iterator;
         typedef typename std::stack<T>::container_type::const_iterator const_iterator;
         typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
