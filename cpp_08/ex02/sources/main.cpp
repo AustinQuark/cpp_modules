@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/29 16:23:59 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 16:29:26 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 #include <iostream>
 
+#define SIZE 42
+
 int main(void)
 {
     MutantStack<int> mstack;
 
-    mstack.push(5);
-    mstack.push(17);
+    std::cout << "Creating stack of ints from 0 to " << SIZE << std::endl;
+    for (int i = 0; i < SIZE; i++)
+        mstack.push(i);
 
     std::cout << mstack.top() << std::endl;
 
-    mstack.pop();
 
     std::cout << mstack.size() << std::endl;
 
