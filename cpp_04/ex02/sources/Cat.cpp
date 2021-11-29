@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:21:45 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/17 17:27:04 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 15:33:18 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Cat::~Cat()
     delete this->_brain;
 }
 
-Cat::Cat(const Cat &cat)
+Cat::Cat(const Cat &cat) : Animal()
 {
     std::cout << "Cat copy constructor called" << std::endl;
     this->type = cat.getType();

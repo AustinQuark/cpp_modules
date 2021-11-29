@@ -6,14 +6,14 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:28:49 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/28 17:28:32 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 15:32:26 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/Cat.hpp"
 #include "../headers/Dog.hpp"
 
-#define NB_ANIMALS 2
+#define NB_ANIMALS 100
 
 int	main( void )
 {
