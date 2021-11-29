@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 00:23:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/21 17:04:27 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/29 15:46:19 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << "---Form : ShrubberyCreationForm" << std::endl;
 	std::cout << "-----Makeform Loop-----" << std::endl;
-	form = intern.makeForm("shrubbery creation", "windows 42");
+	form = intern.makeForm("shrubbery creation", "42");
 	std::cout << "-----------------------" << std::endl;
 	std::cout << std::endl;
 
