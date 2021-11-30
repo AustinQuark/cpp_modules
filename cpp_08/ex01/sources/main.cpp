@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/30 16:46:25 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 16:49:54 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int main(void)
     std::vector<int>::iterator o;
     try
     {
-        i.addFromIterators(t.begin(), t.end(), &t);
+        i.addFromIterators(t.begin(), t.end(), t);
         std::cout << "LongestSpan  : " << i.longestSpan() << std::endl;
         std::cout << "ShortestSpan : " << i.shortestSpan() << std::endl;
     }
