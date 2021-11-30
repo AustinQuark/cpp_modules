@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/30 16:49:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 17:41:59 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ Span *allocateSpan(unsigned int N)
     return (nw);
 }
 
+int generateFunc() {return (rand() % 100);}
+
 int main(void)
 {
     std::cout << "---Simple test" << std::endl;
@@ -39,13 +41,8 @@ int main(void)
     
     std::cout << "---AddFromIterators test" << std::endl;
     Span i = Span(5);
-    std::vector<int> t;
-    t.push_back(-42);
-    t.push_back(42);
-    t.push_back(1);
-    t.push_back(2);
-    t.push_back(3);
-    std::vector<int>::iterator o;
+    std::vector<int> t(5);
+    std::generate(t.begin(), t.end(), generateFunc);
     try
     {
         i.addFromIterators(t.begin(), t.end(), t);
