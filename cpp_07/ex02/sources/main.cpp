@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:04:02 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 02:30:26 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 15:18:45 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,22 @@ int main(void)
 	for (int i = 0; i < 5; i++)
 		std::cout << stringArrayCopy[i] << " ";
 	std::cout << std::endl;
-	std::cout << "---Change stringArrayContent" << std::endl;
+	std::cout << "---Change stringArray content" << std::endl;
 	stringArray[0] = "Is";
 	stringArray[1] = "That";
 	stringArray[2] = "A";
 	stringArray[3] = "Deep";
 	stringArray[4] = "Copy";
-	std::cout << "---Displaying again arrayStringCopy to prove deep copy" << std::endl;
+	std::cout << "---Displaying again stringArray" << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << stringArray[i] << " ";
+	std::cout << std::endl;
+	std::cout << "---Displaying again arrayStringCopy and arrayStringAssignation to prove deep copy" << std::endl;
 	for (int i = 0; i < 5; i++)
 		std::cout << stringArrayCopy[i] << " ";
+	std::cout << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << stringArrayAssign[i] << " ";
 	std::cout << std::endl;
 
 	std::cout << "---Try to access negative index" << std::endl;

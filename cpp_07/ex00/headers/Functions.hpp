@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:57:28 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/23 00:06:43 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 14:59:27 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ template <typename T> void swap(T &a, T &b)
     b = temp;
 }
 
-template <typename T> T min(T &a, T &b)
+template <typename T> T &min(T &a, T &b)
 {
     if (a < b)
         return (a);
     return (b);
 }
 
-template <typename T> T max(T &a, T &b)
+template <typename T> T &max(T &a, T &b)
 {
     if (a > b)
         return (a);

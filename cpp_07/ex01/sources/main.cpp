@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 00:04:02 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 00:45:56 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 15:03:32 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
 template <typename T> void displayOneElem(T &c)
 {

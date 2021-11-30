@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 00:47:46 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 02:04:33 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 15:11:45 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <iostream>
 
-template <typename T> class Array
+template <typename T>
+class Array
 {
     private:
         T *array;
