@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:09:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/29 00:10:11 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 16:44:52 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ void Span::addFromIterators(std::vector<int>::iterator begin, std::vector<int>::
 {
     if (begin < add->begin() || begin > add->end() || end < add->begin() || end > add->end())
         throw std::logic_error("Iterators not part of third vector argument");
+    else if (static_cast<unsigned long>(std::distance(begin, end)) > static_cast<unsigned long>(this->N - this->list.size()))
+        throw std::logic_error("addFromRange failed cause range plus actual list size overflows");
     else
     {
         std::vector<int> nw(begin, end);
-        for (std::vector<int>::iterator it = begin; it < end; it++)
-            this->addNumber(*it);
+        this->list.insert(this->list.end(), nw.begin(), nw.end());
     }
 }
 
