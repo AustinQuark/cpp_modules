@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 00:19:52 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/30 12:37:42 by avieira          ###   ########.fr       */
+/*   Updated: 2021/11/30 15:24:59 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class MutantStack : public std::stack<T>
             std::cout << "Constructor called" << std::endl;
         }
 
-        MutantStack<T>(const MutantStack<T> &mstack)
+        MutantStack<T>(const MutantStack<T> &mstack) : std::stack<T>()
         {
             std::cout << "Copy constructor called" << std::endl;
             *this = mstack;
