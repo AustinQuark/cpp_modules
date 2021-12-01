@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 12:34:08 by avieira           #+#    #+#              #
-#    Updated: 2021/11/28 18:15:59 by avieira          ###   ########.fr        #
+#    Updated: 2021/12/01 13:32:12 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRCS = sources/main.cpp \
-		sources/Span.cpp
+		sources/span.cpp
 
 
 RM = rm -rf

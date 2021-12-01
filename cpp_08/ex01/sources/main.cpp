@@ -6,11 +6,11 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:36:33 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/30 17:41:59 by avieira          ###   ########.fr       */
+/*   Updated: 2021/12/01 13:33:16 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/Span.hpp"
+#include "../headers/span.hpp"
 
 #define RANGE 2147483647
 #define SIZE 100000000
