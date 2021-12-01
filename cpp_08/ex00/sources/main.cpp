@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 15:08:57 by avieira           #+#    #+#             */
-/*   Updated: 2021/11/27 15:47:57 by avieira          ###   ########.fr       */
+/*   Updated: 2021/12/01 14:19:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
     srand(time(NULL));
     for (int i = 0; i < SIZE; i++)
         list.push_back(rand() % RANGE);
-    
+
     std::cout << "---Displaying container list of int" << std::endl;
     
     std::cout << "index : ";
